@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.Assert.assertEquals;
 
 public class FactorialDigitSumTest {
@@ -7,14 +9,14 @@ public class FactorialDigitSumTest {
     @Test
     public void testShouldCalculateTheFactorialOfTheNumber() {
         FactorialCalculator factorialCalculator = new FactorialCalculator();
-        int factorialOfNumber = factorialCalculator.calculateFactorial(10);
-        assertEquals(3628800, factorialOfNumber);
+        BigInteger factorialOfNumber = factorialCalculator.calculateFactorial(10);
+        assertEquals(BigInteger.valueOf(3628800), factorialOfNumber);
     }
 
     @Test
     public void testShouldCalculateTheSumOfTheDigitsInTheFactorialOfTheNumber() {
         FactorialCalculator factorialCalculator = new FactorialCalculator();
-        int sumDigitsFactorial = factorialCalculator.sumDigitsOfFactorial(10);
-        assertEquals(27, sumDigitsFactorial);
+        BigInteger sumDigitsFactorial = factorialCalculator.sumDigitsOfFactorial(10);
+        assertEquals(BigInteger.valueOf(27), sumDigitsFactorial);
     }
 }

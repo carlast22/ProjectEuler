@@ -1,30 +1,30 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigInteger;
 
 public class FactorialCalculator {
 
 
-    public int calculateFactorial(int number) {
+    public BigInteger calculateFactorial(long number) {
 
-        int factorial;
+        BigInteger factorial;
+        BigInteger myNumber = BigInteger.valueOf(number);
 
-        if(number > 0){
-            factorial = number * calculateFactorial(number-1);
-        }else{
-            return 1;
+        if (number > 0) {
+            factorial = myNumber.multiply(calculateFactorial(number - 1));
+        } else {
+            return BigInteger.ONE;
         }
         return factorial;
     }
 
 
-    public int sumDigitsOfFactorial(int number) {
+    public BigInteger sumDigitsOfFactorial(long number) {
 
-        number = calculateFactorial(number);
-        int sum = 0;
+        BigInteger myNumber = calculateFactorial(number);
+        BigInteger sum = BigInteger.ZERO;
 
-        while (number > 0) {
-            sum += (number%10);
-            number/=10;
+        while (myNumber.signum() == 1) {
+            sum = sum.add(myNumber.mod(BigInteger.valueOf(10)));
+            myNumber = myNumber.divide(BigInteger.valueOf(10)) ;
         }
         return sum;
     }
